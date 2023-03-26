@@ -1,0 +1,91 @@
+<div class="row g-0 h-100">
+  <div class="col h-100">
+    <kendo-textbox [style.width.px]="300"
+                   placeholder="Search By Name..."
+                   [clearButton]="true"
+                   (valueChange)="onNameFilterChange($event)"
+                   (afterValueChanged)="onNameFilterChange($event)">
+    </kendo-textbox>
+    <kendo-grid id="patientsGrid"
+                [data]="gridData"
+                [pageSize]="gridState.take"
+                [skip]="gridState.skip"
+                [sort]="gridState.sort"
+                [filter]="gridState.filter"
+                [pageable]="true"
+                [sortable]="true"
+                [filterable]="false"
+                [loading]="isLoading"
+                [style.height]="'95%'"
+                [selectable]="false"
+                [resizable]="true"
+                (dataStateChange)="dataStateChange($event)"
+                [selectable]="true"
+                (selectionChange)="onRowSelection($event)">
+
+      <kendo-grid-column field="name"
+                         title="Name"
+                         [width]="100"
+                         [filterable]="true"
+                         [sortable]="true">
+        <ng-template kendoGridCellTemplate
+                     let-character>
+          <span>
+            {{character.name}}
+          </span>
+        </ng-template>
+      </kendo-grid-column>
+
+      <kendo-grid-column field="tvShows"
+                         title="In TV Shows"
+                         [width]="120"
+                         [filterable]="false">
+        <ng-template kendoGridCellTemplate
+                     let-character>
+          <span>
+            {{character.tvShows}}
+          </span>
+        </ng-template>
+      </kendo-grid-column>
+
+      <kendo-grid-column field="videoGames"
+                         title="In Video Games"
+                         [width]="120"
+                         [filterable]="false">
+        <ng-template kendoGridCellTemplate
+                     let-character>
+          <span>
+            {{character.videoGames}}
+          </span>
+        </ng-template>
+      </kendo-grid-column>
+
+      <kendo-grid-column field="allies"
+                         title="Allies"
+                         [width]="120"
+                         [filterable]="false">
+        <ng-template kendoGridCellTemplate
+                     let-character>
+          <span>
+            {{character.allies}}
+          </span>
+        </ng-template>
+      </kendo-grid-column>
+
+      <kendo-grid-column field="enemies"
+                         title="Enemies"
+                         [width]="120"
+                         [filterable]="false">
+        <ng-template kendoGridCellTemplate
+                     let-character>
+          <span>
+            {{character.enemies}}
+          </span>
+        </ng-template>
+      </kendo-grid-column>
+    </kendo-grid>
+  </div>
+</div>
+
+<app-character-info [characterInput]="selectedCharacter">
+</app-character-info>

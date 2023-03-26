@@ -1,0 +1,25 @@
+<kendo-dialog *ngIf="showDialog"
+              [height]="'50%'"
+              [width]="'50%'"
+              (close)="closeDialog()">
+    <kendo-dialog-titlebar> {{character?.name}}</kendo-dialog-titlebar>
+    <div class="row pt-2">
+        <div class="col-md-12 text-center">
+            <img src={{character?.imageUrl}}
+                 alt={{character?.imageUrl}}
+                 height="320"
+                 width="280">
+        </div>
+    </div>
+    <kendo-dialog-actions style="justify-content: space-evenly">
+        <div class="k-block border-0 w-100">
+            <div fxFlex="row"
+                 fxLayoutAlign="center center">
+                <button type="button"
+                        mat-raised-button
+                        color="secondary"
+                        (click)="closeDialog()">Close</button>
+            </div>
+        </div>
+    </kendo-dialog-actions>
+</kendo-dialog>

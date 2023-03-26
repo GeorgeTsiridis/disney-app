@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+@import "@angular/material/theming";
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+@include mat.core();
+@import "bootstrap/dist/css/bootstrap.css";
+@import "ngx-toastr/toastr";
+// @import '~@progress/kendo-theme-default/scss/all';
+
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  z-index: 1000;
+}

@@ -1,0 +1,40 @@
+<mat-toolbar class="mat-elevation-z10"
+             color="primary"
+             fxLayout="row">
+    <div>
+        <h2>
+            <a class="logo"
+               [routerLink]="['/']">
+                Disney App
+            </a>
+        </h2>
+    </div>
+    <div fxFlex
+         fxLayout="row"
+         fxLayoutAlign="flex-end"
+         fxHide.xs>
+        <ul fxLayout
+            fxLayoutGap="20px"
+            class="menu-items">
+            <li><a [routerLink]="['/list']">List</a></li>
+            <li><a [routerLink]="['/charts']">Charts</a></li>
+        </ul>
+    </div>
+    <div fxFlex
+         fxLayout="row"
+         fxLayoutAlign="flex-end"
+         fxHide.gt-xs>
+        <a class="valign-center"
+           mat-icon-button
+           [matMenuTriggerFor]="menu"
+           aria-label="additional links">
+            <mat-icon>more_vert</mat-icon>
+        </a>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item
+                    [routerLink]="['/list']">List</button>
+            <button mat-menu-item
+                    [routerLink]="['/charts']">Charts</button>
+        </mat-menu>
+    </div>
+</mat-toolbar>
