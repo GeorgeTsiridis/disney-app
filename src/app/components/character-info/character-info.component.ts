@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Character } from 'src/app/models/character';
 
 @Component({
@@ -17,10 +17,14 @@ export class CharacterInfoComponent {
     }
   }
 
+  @Output()
+  public closeEvent: EventEmitter<any> = new EventEmitter<any>();
+
   public character: Character | undefined;
 
   public closeDialog(): void {
     this.showDialog = false;
     this.character = undefined;
+    this.closeEvent.emit();
   }
 }

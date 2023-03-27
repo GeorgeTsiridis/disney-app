@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CharacterInfoComponent } from './components/character-info/character-info.component';
 import { CharacterListComponent } from './components/character-list/character-list.component';
+import { ChartsComponent } from './components/charts/charts.component';
+import { ErrorComponent } from './components/error/error.component';
 
 const routes: Routes = [
   {
@@ -9,21 +10,13 @@ const routes: Routes = [
     component: CharacterListComponent
   },
   {
-    path: 'movie/:id',
-    // resolve: {
-    //   movie: MovieResolver,
-    // },
-    component: CharacterInfoComponent
+    path: 'error',
+    component: ErrorComponent
   },
-  // { path: 'error', 
-  //   component: ErrorComponent 
-  // },
-  // { path: 'favorites', 
-  //   component: FavoritesComponent 
-  // },
-  // { path: 'watched-list', 
-  //   component: WatchedListComponent 
-  // },
+  {
+    path: 'charts',
+    component: ChartsComponent
+  },
   {
     path: '**',
     redirectTo: 'error',

@@ -87,5 +87,6 @@
   </div>
 </div>
 
-<app-character-info [characterInput]="selectedCharacter">
+<app-character-info [characterInput]="selectedCharacter"
+                    (closeEvent)="onDialogClose()">
 </app-character-info>

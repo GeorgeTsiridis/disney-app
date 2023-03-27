@@ -39,7 +39,7 @@ export class CharacterListComponent implements OnInit {
   constructor(private characterService: DisneyApiService) { }
 
   ngOnInit(): void {
-    this.fetch()
+    this.fetch();
   }
 
   public fetch(): void {
@@ -47,23 +47,19 @@ export class CharacterListComponent implements OnInit {
     this.characterService.getCharacters(this.gridState.skip as number, this.gridState.take as number).subscribe({
       next: (res: any) => {
         this.isLoading = false;
-        console.error(res)
         this.gridData = {
           data: res.data,
-          total: res.totalPages * res.count,
+          total: res.totalPages * res.count
         };
-        this.dataSource = res.data
-        console.error(this.gridData)
       },
       error: (err: any) => {
-        console.error(err)
+        console.error(err);
         this.isLoading = false;
       }
     });
   }
 
   public dataStateChange(event: DataStateChangeEvent): void {
-    console.error(event.sort)
     this.gridState.skip = event.skip;
     this.fetch();
   }
@@ -83,11 +79,11 @@ export class CharacterListComponent implements OnInit {
         this.isLoading = false;
         this.gridData = {
           data: res.data,
-          total: res.count,
+          total: res.count
         };
       },
       error: (err: any) => {
-        console.error(err)
+        console.error(err);
         this.isLoading = false;
       }
     })
@@ -96,5 +92,9 @@ export class CharacterListComponent implements OnInit {
   public onRowSelection(selection: any): void {
     const selectedData = selection.selectedRows[0].dataItem;
     this.selectedCharacter = selectedData;
+  }
+
+  public onDialogClose(): void {
+    this.selectedCharacter = undefined;
   }
 }

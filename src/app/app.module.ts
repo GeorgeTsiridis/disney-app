@@ -13,12 +13,16 @@ import { CharacterListComponent } from './components/character-list/character-li
 import { CharacterInfoComponent } from './components/character-info/character-info.component';
 import { MaterialModule } from './shared/material.module';
 import { KendoModule } from './shared/kendo.module';
+import { ChartsComponent } from './components/charts/charts.component';
+import { ErrorComponent } from './components/error/error.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     CharacterListComponent,
-    CharacterInfoComponent
+    CharacterInfoComponent,
+    ChartsComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

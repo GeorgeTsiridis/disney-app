@@ -1,14 +1,22 @@
 <kendo-dialog *ngIf="showDialog"
-              [height]="'50%'"
+              [height]="'60%'"
               [width]="'50%'"
               (close)="closeDialog()">
     <kendo-dialog-titlebar> {{character?.name}}</kendo-dialog-titlebar>
     <div class="row pt-2">
-        <div class="col-md-12 text-center">
+        <div class="col-md-12 text-center pb-2">
             <img src={{character?.imageUrl}}
                  alt={{character?.imageUrl}}
                  height="320"
                  width="280">
+        </div>
+        <div fxFlex="row"
+             fxLayoutAlign="center center">
+            <span><b>TV Shows:</b> {{character?.tvShows}}</span>
+        </div>
+        <div fxFlex="row"
+             fxLayoutAlign="center center">
+            <span><b>Video Games:</b> {{character?.videoGames}}</span>
         </div>
     </div>
     <kendo-dialog-actions style="justify-content: space-evenly">
